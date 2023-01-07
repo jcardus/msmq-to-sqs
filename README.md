@@ -1,5 +1,5 @@
 ### Getting started
-- Download latest zip file from [releases](https://github.com/jcardus/msmq-to-sqs/releases)
+- Download latest [zip file](msmq-to-sqs.zip)
 - Extract contents to the desired folder
 - Replace the msmq-to-sqs.exe.config context with correct configuration
 - Install the windows service by opening a command prompt **as an Administrator** and running the following command in the extracted folder:

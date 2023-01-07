@@ -31,7 +31,7 @@
             // 
             // Service1
             // 
-            this.ServiceName = "Service1";
+            this.ServiceName = "msmq-to-sqs";
 
         }
 

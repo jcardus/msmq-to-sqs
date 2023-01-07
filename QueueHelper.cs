@@ -7,8 +7,7 @@ namespace msmq_to_sqs
   public class QueueHelper
   {
     private static Logger logger = LogManager.GetCurrentClassLogger();
-           
-
+    
     [MethodImpl(MethodImplOptions.Synchronized)]
     public static void Send(string m, string queue)
     {

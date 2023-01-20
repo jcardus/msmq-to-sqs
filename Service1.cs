@@ -17,7 +17,7 @@ namespace msmq_to_sqs
     {        
         private static readonly Logger L = LogManager.GetCurrentClassLogger();        
         private static bool _isOn = true;
-        private AmazonSQSClient _sqsClient = new AmazonSQSClient(RegionEndpoint.SAEast1);
+        private AmazonSQSClient _sqsClient = new AmazonSQSClient();
         private const int MaxMessages = 10;
         private const int WaitTime = 20;
 
@@ -138,10 +138,9 @@ namespace msmq_to_sqs
             {
                 foreach (var key in appSettings.AllKeys)
                 {
-                    L.Warn("Key: {0} Value: {1}", key, appSettings[key]);
                     if (key.StartsWith("msmqToSqs"))
                     {
-                        MsmqToSqs.Add($".\\private$\\{key.Split('|')[1]}", appSettings[key]);
+                        MsmqToSqs.Add(key.Split('|')[1], appSettings[key]);
                     }
                     else if(key.StartsWith("sqsToMsmq"))
                     {
@@ -150,7 +149,7 @@ namespace msmq_to_sqs
                     else if(key == "awsAccessKeyId")
                     {
                         L.Warn($"creating sqsClient {appSettings[key]}");
-                        _sqsClient = new AmazonSQSClient(appSettings[key], appSettings["awsSecretAccessKey"],RegionEndpoint.SAEast1);
+        
                     }
                 }
             }

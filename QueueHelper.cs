@@ -1,5 +1,6 @@
 ﻿using NLog;
 using System;
+using System.Globalization;
 using System.Messaging;
 using System.Runtime.CompilerServices;
 namespace msmq_to_sqs
@@ -18,7 +19,7 @@ namespace msmq_to_sqs
         Message message = new Message();
         message.Body = m;
         message.Formatter = new ActiveXMessageFormatter();
-        sQueue.Send(message, DateTime.Now.ToString(), transaction);
+        sQueue.Send(message, DateTime.Now.ToString(CultureInfo.InvariantCulture), transaction);
         transaction.Commit();
     }
 

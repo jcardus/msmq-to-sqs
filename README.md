@@ -1,3 +1,7 @@
+### About
+This project forwards microsoft message queuing to aws simple queue service and vice-versa.
+### Requirements
+It runs on windows using .net 4.7
 ### Getting started
 - Download latest zip file from [releases](https://github.com/jcardus/msmq-to-sqs/releases)
 - Extract contents to the desired folder

@@ -15,4 +15,4 @@ It runs on windows using .net 4.7
 
 
 
-- Project [msmq-to-sqs](https://github.com/jcardus/msmq-to-sqs)
+Github project: [msmq-to-sqs](https://github.com/jcardus/msmq-to-sqs)

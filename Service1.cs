@@ -17,7 +17,7 @@ namespace msmq_to_sqs
     {        
         private static readonly Logger L = LogManager.GetCurrentClassLogger();        
         private static bool _isOn = true;
-        private AmazonSQSClient _sqsClient = new AmazonSQSClient();
+        private AmazonSQSClient _sqsClient;
         private const int MaxMessages = 10;
         private const int WaitTime = 20;
 
@@ -110,6 +110,7 @@ namespace msmq_to_sqs
             try
             {
                 ReadSettings();
+                _sqsClient = new AmazonSQSClient(RegionEndpoint.SAEast1);
                 foreach (string msmq in MsmqToSqs.Keys)
                 {
                     Task.Run(() => MsmqToSQS(msmq, MsmqToSqs[msmq]));
